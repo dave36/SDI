@@ -13,27 +13,31 @@
 		<center><h1>Introduzca sus datos</h1></center>
  		<hr><br>
  		
-		<div>
-			<label for="login">Login:</label>
-			<input type="text" id="login" name="login"/>
-		</div> 
+ 		<table align="center">
+		<tr>
+			<td align="right">Login:</td>
+			<td><input type="text" id="login" name="login"/></td>
+		</tr> 
 		
-		<div>
-			<label for="email">Email:</label>
-			<input type="text" id="email" name="email"/>
-		</div> 
+		<tr>
+			<td align="right">Email:</td>
+			<td><input type="text" id="email" name="email"/></td>
+		</tr>
 		
-		<div>
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password"/>
-		</div> 
+		<tr>
+			<td align="right">Password:</td>
+			<td><input type="password" id="password" name="password"/></td>
+		</tr> 
 		
-		<div>
-			<label for="password-confirmacion">Password (Confirmación):</label>
-			<input type="password" id="password-confirmacion" name="password-confirmacion"/>
-		</div> 
-	
-		<input type="submit" value="Enviar"/>
+		<tr>
+			<td align="right">Password (Confirmación):</td>
+			<td><input type="password" id="password-confirmacion" name="password-confirmacion"/></td>
+		</tr> 
+		
+		<tr>
+			<td><input type="submit" value="Enviar"/></td>
+		</tr>
+		</table>
    </form>
 	
 </body>
