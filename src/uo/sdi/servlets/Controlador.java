@@ -18,6 +18,8 @@ import uo.sdi.persistence.PersistenceException;
 
 public class Controlador extends javax.servlet.http.HttpServlet {
 	
+	
+	
 	private static final long serialVersionUID = 1L;
 	private Map<String, Map<String, Accion>> mapaDeAcciones; // <rol, <opcion, objeto Accion>>
 	private Map<String, Map<String, Map<String, String>>> mapaDeNavegacion; // <rol, <opcion, <resultado, JSP>>>
