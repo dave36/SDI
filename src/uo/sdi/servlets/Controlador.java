@@ -62,6 +62,11 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			
 			Log.error("Se ha producido alguna excepción relacionada con la persistencia [%s]",
 					e.getMessage());
+			
+			
+			Log.error(e);
+			
+			
 			request.setAttribute("mensajeParaElUsuario", 
 					"Error irrecuperable: contacte con el responsable de la aplicación");
 			jspSiguiente="/login.jsp";
@@ -72,6 +77,10 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 			
 			Log.error("Se ha producido alguna excepción no manejada [%s]",
 					e.getMessage());
+			
+			
+			Log.error(e);
+			
 			request.setAttribute("mensajeParaElUsuario", 
 					"Error irrecuperable: contacte con el responsable de la aplicación");
 			jspSiguiente="/login.jsp";
@@ -129,6 +138,8 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		
 		Map<String,Accion> mapaRegistrado=new HashMap<String,Accion>();
 		mapaRegistrado.put("modificarDatos", new ModificarDatosAction());
+		mapaRegistrado.put("listarTareas", new ListarTareasAction());
+		mapaRegistrado.put("finalizarTarea", new FinalizarTareaAction());
 		mapaDeAcciones.put("USUARIO", mapaRegistrado);
 		
 		//Administrador
@@ -172,6 +183,16 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resultadoYJSP.put("EXITO","/principalUsuario.jsp");
 		resultadoYJSP.put("FRACASO","/principalUsuario.jsp");
 		opcionResultadoYJSP.put("modificarDatos", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/listarTareas.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("listarTareas", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/listarTareas.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("finalizarTarea", resultadoYJSP);
 		
 		mapaDeNavegacion.put("USUARIO",opcionResultadoYJSP);  
 		
