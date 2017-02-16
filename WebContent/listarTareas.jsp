@@ -17,6 +17,8 @@
 		<tr>
 			<th>Título</th>
 			<th>Creada</th>
+			<th>Planificada</th>
+			<th></th>
 			<th></th>
 		</tr>
 		<c:forEach items="${requestScope.tasks}" var="task">
@@ -28,7 +30,15 @@
 				</td>
 				
 				<td>
+					<fmt:formatDate value="${pageScope.task.planned}" type="date" dateStyle="short"/>
+				</td>
+				
+				<td>
 					<a href="finalizarTarea?idTarea=${pageScope.task.id}">Finalizar</a>
+				</td>
+				
+				<td>
+					<a href="modificarTarea?idTarea=${pageScope.task.id}">Modificar</a>
 				</td>
 			</tr>
 		</c:forEach>
