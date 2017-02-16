@@ -41,6 +41,5 @@ public class ListarCategoriasAction implements Accion {
 	@Override
 	public String toString() {
 		return getClass().getName();
-	}
-	
+	}	
 }

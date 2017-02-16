@@ -1,7 +1,6 @@
 package uo.sdi.servlets;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -145,6 +144,9 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		//Administrador
 		Map<String,Accion> mapaAdmin=new HashMap<String,Accion>();
 		mapaAdmin.put("modificarEmail", new ModificarDatosAction());
+		mapaAdmin.put("listarUsuarios", new ListarUsuariosAction());
+		mapaAdmin.put("modificarStatus", new ModificarStatusAction());
+		mapaAdmin.put("eliminarUsuario", new EliminarUsuarioAction());
 		mapaDeAcciones.put("ADMIN", mapaAdmin);
 	}
 	
@@ -200,8 +202,33 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		
 		// POR HACER ...
 		
-		// El Mapa es el mismo que para el usuario, así que le paso un mapa clonado
-		mapaDeNavegacion.put("ADMIN", Collections.unmodifiableMap(opcionResultadoYJSP));
+		// Crear mapas auxiliares vacíos
+		opcionResultadoYJSP=new HashMap<String, Map<String, String>>();
+		resultadoYJSP=new HashMap<String, String>();
+		
+		resultadoYJSP.put("EXITO","/principalAdmin.jsp");
+		opcionResultadoYJSP.put("validarse", resultadoYJSP);
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO","/principalUsuario.jsp");
+		resultadoYJSP.put("FRACASO","/principalUsuario.jsp");
+		opcionResultadoYJSP.put("modificarDatos", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/listarUsuarios.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("listarUsuarios", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/listarUsuarios.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("modificarStatus", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/listarUsuarios.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("eliminarUsuario", resultadoYJSP);
+		
+		mapaDeNavegacion.put("ADMIN", opcionResultadoYJSP);
 	}
 			
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
