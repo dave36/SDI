@@ -56,14 +56,15 @@ public class UserCheck {
 		boolean numeros = false;
 		
         for(int i=0; i<password.length(); i++){
-        	if(Character.isLetter(i)){
+        	
+        	if(Character.isLetter(password.charAt(i))){
         		letras = true;
         	}
-        	if(Character.isDigit(i)){
+        	if(Character.isDigit(password.charAt(i))){
         		numeros=true;
         	}
         }
-        return letras&numeros;
+       return letras&&numeros;
     }
 
 }

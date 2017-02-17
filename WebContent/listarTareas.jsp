@@ -38,7 +38,7 @@
 				</td>
 				
 				<td>
-					<a href="modificarTarea?idTarea=${pageScope.task.id}">Modificar</a>
+					<a href="modificacionTarea?idTarea=${pageScope.task.id}">Modificar</a>
 				</td>
 			</tr>
 		</c:forEach>

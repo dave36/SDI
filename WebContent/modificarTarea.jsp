@@ -9,24 +9,24 @@
 <body>
 	
 	<form action="modificar-tarea" method="post" name="modificar_form_name">
-	
+		<input type="hidden" value="${tarea.id}" name="id">
 		<center><h1>Introduzca sus datos</h1></center>
  		<hr><br>
  		
  		<table align="center">
 		<tr>
 			<td align="right">Title:</td>
-			<td><input type="text" id="title" name="title"/></td>
+			<td><input type="text" id="title" name="title" value="${tarea.title}"/></td>
 		</tr> 
 		
 		<tr>
 			<td align="right">Comments:</td>
-			<td><input type="text" id="comments" name="comments"/></td>
+			<td><input type="text" id="comments" name="comments" value="${tarea.comments}"/></td>
 		</tr>
 		
 		<tr>
 			<td align="right">Planned:</td>
-			<td><input type="text" id="planned" name="planned"/></td>
+			<td><input type="text" id="planned" name="planned" value="DD/MM/YYYY"/></td>
 		</tr> 
 		
 		<tr>

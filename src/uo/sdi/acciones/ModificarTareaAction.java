@@ -1,15 +1,15 @@
 package uo.sdi.acciones;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import alb.util.log.Log;
 import uo.sdi.business.Services;
+import uo.sdi.business.TaskService;
 import uo.sdi.business.exception.BusinessException;
 import uo.sdi.dto.Task;
 
@@ -22,40 +22,40 @@ public class ModificarTareaAction implements Accion {
 		
 		String resultado = "EXITO";
 		
-		Long id = null;
-		String StrId = request.getParameter("idTarea");
-		
-		if(StrId != null){
-			try {
-				id = Long.parseLong(StrId);
-			}
-			catch (NumberFormatException e) {};
-		}
-		if(id == null) {
-			request.setAttribute("mensaje", "El id de la tarea no se pasó o era null");
-			resultado = "FRACASO";
-		}
-		
-		Task task = null;
 		try {
-			task = Services.getTaskService().findTaskById(id);
-			task.setTitle(request.getParameter("title"));
-			task.setComments(request.getParameter("comments"));
+			Long id =Long.parseLong(request.getParameter("id"));
+			
+			TaskService ts = Services.getTaskService();
+			Task task = ts.findTaskById(id);
+			
+			String title = request.getParameter("title");
+			if(title!=null){
+				task.setTitle(title);
+			}
+			String comments = request.getParameter("comments");
+			if(comments!=null){
+				task.setComments(comments);
+			}
+			String fecha = request.getParameter("planned");
+			if(!fecha.equals("DD/MM/YYYY")){
+				SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+				Date date;
+				date = format.parse(fecha);
+				task.setPlanned(date);
+			}
+			
 			Services.getTaskService().updateTask(task);
+			
+			TaskService taskService = Services.getTaskService();
+			List<Task> tasks = taskService.findTodayTasksByUserId(task.getUserId());
+			request.setAttribute("tasks", tasks);
 		} catch (BusinessException e1) {
 			request.setAttribute("error", e1.getMessage());
 			resultado = "FRACASO";
-		}
-		
-		
-//		DateFormat formatter1 = new SimpleDateFormat("DD/mm/yyyy");
-//		try {
-//			task.setPlanned((Date)formatter1.parse(request.getParameter("planned")));
-//		} catch (ParseException e1) {
-//			Log.debug("Fecha incorrecta");
-//		}
-		
-		resultado = "EXITO";
+		} catch (ParseException e) {
+			request.setAttribute("error", "Formato de fecha no valido");
+			resultado = "FRACASO";
+		}	
 		return resultado;
 	}
 	

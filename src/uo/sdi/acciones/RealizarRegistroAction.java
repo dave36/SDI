@@ -3,7 +3,9 @@ package uo.sdi.acciones;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import alb.util.log.Log;
 import uo.sdi.business.Services;
+import uo.sdi.business.UserService;
 import uo.sdi.business.exception.BusinessException;
 import uo.sdi.dto.User;
 import uo.sdi.dto.types.UserStatus;
@@ -31,7 +33,9 @@ public class RealizarRegistroAction implements Accion {
 		}
 		else{
 			try{
-				Services.getUserService().registerUser(user);
+				UserService us = Services.getUserService();
+				us.registerUser(user);
+				Log.debug("llegueeeeeeeeeeeeeee");
 			}
 			catch(BusinessException e){
 				request.setAttribute("error", e.getMessage());
