@@ -13,6 +13,12 @@
 <body>
 	<h1>Listado de tareas</h1>
 	
+	<ul>
+		<li>
+			<a href="gestionarCategorias">Gestionar categorias</a>
+		</li>
+	</ul>
+	
 	<table>
 		<tr>
 			<th>Título</th>

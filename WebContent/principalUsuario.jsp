@@ -65,7 +65,7 @@
 		</tr>
 	</table>
 	<br/>	
-	<a id="cerrarSesion_link_id" href="cerrarSesion">Cerrar sesión</a>
+	<a href="cerrarSesion">Cerrar sesión</a>
 	
 	<%@ include file="pieDePagina.jsp" %>
 </body>
