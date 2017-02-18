@@ -35,7 +35,6 @@ public class RealizarRegistroAction implements Accion {
 			try{
 				UserService us = Services.getUserService();
 				us.registerUser(user);
-				Log.debug("llegueeeeeeeeeeeeeee");
 			}
 			catch(BusinessException e){
 				request.setAttribute("error", e.getMessage());
