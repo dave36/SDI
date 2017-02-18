@@ -10,7 +10,7 @@
 <body>
 	<h1>Listado de Usuarios</h1>
 	
-	<table>
+	<table border="1">
 		<tr>
 			<th>Login</th>
 			<th>Email</th>

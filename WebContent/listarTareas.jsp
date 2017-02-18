@@ -19,7 +19,7 @@
 		</li>
 	</ul>
 	
-	<table>
+	<table border="1">
 		<tr>
 			<th>Título</th>
 			<th>Creada</th>
