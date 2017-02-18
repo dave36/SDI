@@ -8,10 +8,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Today Tasks</title>
+<title>Inbox Tasks</title>
 </head>
 <body>
-	<h1>Listado de tareas</h1>
+	<h1>Listado de tareas - Inbox</h1>
 	
 	<ul>
 		<li>
@@ -21,7 +21,7 @@
 			<a href="añadirTarea">Añadir tarea</a>
 		</li>
 		<li>
-			<a href="listarTareasInbox">Listar tareas Inbox</a>
+			<a href="listarTareas">Listar tareas Today</a>
 		</li>
 		<li>
 			<a href="listarTareasSemana">Listar tareas Semana</a>
