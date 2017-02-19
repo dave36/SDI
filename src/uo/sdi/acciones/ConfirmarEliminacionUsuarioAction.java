@@ -1,5 +1,7 @@
 package uo.sdi.acciones;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,13 +11,12 @@ import uo.sdi.business.Services;
 import uo.sdi.business.exception.BusinessException;
 import uo.sdi.dto.User;
 
-public class EliminarUsuarioAction implements Accion {
+public class ConfirmarEliminacionUsuarioAction implements Accion {
 
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		String resultado = "EXITO";
-		
 		String idStr = request.getParameter("idUsuario");
 		Long id = null;
 		if(idStr!=null){
@@ -31,8 +32,9 @@ public class EliminarUsuarioAction implements Accion {
 		
 		AdminService adminService = Services.getAdminService();
 		try{
-			User user = adminService.findUserById(id);
-			request.setAttribute("usuario", user);
+			adminService.deepDeleteUser(id);
+			List<User> usuarios = adminService.findAllUsers();
+			request.setAttribute("listaUsuarios", usuarios);
 		}
 		catch(BusinessException b){
 			Log.debug("Error al eliminar al usuario con id [%d]",
@@ -42,9 +44,5 @@ public class EliminarUsuarioAction implements Accion {
 		
 		return resultado;
 	}
-	
-	@Override
-	public String toString() {
-		return getClass().getName();
-	}
+
 }

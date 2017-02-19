@@ -163,6 +163,8 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		mapaAdmin.put("listarUsuarios", new ListarUsuariosAction());
 		mapaAdmin.put("modificarStatus", new ModificarStatusAction());
 		mapaAdmin.put("eliminarUsuario", new EliminarUsuarioAction());
+		mapaAdmin.put("eliminar-usuario", new ConfirmarEliminacionUsuarioAction());
+		mapaAdmin.put("cancelar-eliminacion-usuario", new CancelarEliminacionUsuarioAction());
 		mapaAdmin.put("cerrarSesion", new CerrarSesionAction());
 		mapaDeAcciones.put("ADMIN", mapaAdmin);
 	}
@@ -334,9 +336,19 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		opcionResultadoYJSP.put("modificarStatus", resultadoYJSP);
 		
 		resultadoYJSP=new HashMap<String, String>();
-		resultadoYJSP.put("EXITO", "/listarUsuarios.jsp");
+		resultadoYJSP.put("EXITO", "/confirmacionEliminarUsuario.jsp");
 		resultadoYJSP.put("FRACASO", "/error.jsp");
 		opcionResultadoYJSP.put("eliminarUsuario", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/listarUsuarios.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("eliminar-usuario", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/listarUsuarios.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("cancelar-eliminacion-usuario", resultadoYJSP);
 		
 		resultadoYJSP=new HashMap<String, String>();
 		resultadoYJSP.put("EXITO", "/login.jsp");
