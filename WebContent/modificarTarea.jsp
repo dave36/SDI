@@ -30,6 +30,11 @@
 		</tr> 
 		
 		<tr>
+			<td align="right">Name of Category:</td>
+			<td><input type="text" id="category" name="category"/></td>
+		</tr>
+		
+		<tr>
 			<td><input type="submit" value="Enviar"/></td>
 		</tr>
 		</table>

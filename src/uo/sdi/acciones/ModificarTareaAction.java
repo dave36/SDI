@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import uo.sdi.business.Services;
 import uo.sdi.business.TaskService;
 import uo.sdi.business.exception.BusinessException;
+import uo.sdi.dto.Category;
 import uo.sdi.dto.Task;
+import uo.sdi.dto.User;
 
 
 public class ModificarTareaAction implements Accion {
@@ -21,6 +23,7 @@ public class ModificarTareaAction implements Accion {
 			HttpServletResponse response) {
 		
 		String resultado = "EXITO";
+		User user = (User)request.getSession().getAttribute("user");
 		
 		try {
 			Long id =Long.parseLong(request.getParameter("id"));
@@ -42,6 +45,17 @@ public class ModificarTareaAction implements Accion {
 				Date date;
 				date = format.parse(fecha);
 				task.setPlanned(date);
+			}
+			
+			List<Category> categorias = Services.getTaskService().
+									findCategoriesByUserId(user.getId());
+	
+			String categoria = request.getParameter("category");
+			for (int i=0; i<categorias.size(); i++) {
+				if (categorias.get(i).getName().toLowerCase().
+						equals(categoria.toLowerCase())) {
+					task.setCategoryId(categorias.get(i).getId());
+				}
 			}
 			
 			Services.getTaskService().updateTask(task);
