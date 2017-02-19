@@ -3,9 +3,10 @@ package uo.sdi.acciones;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import alb.util.log.Log;
 import uo.sdi.business.Services;
 import uo.sdi.business.exception.BusinessException;
-import uo.sdi.dto.Task;
+import uo.sdi.dto.Category;
 
 public class AñadidoDeTareaAction implements Accion {
 
@@ -14,7 +15,7 @@ public class AñadidoDeTareaAction implements Accion {
 			HttpServletResponse response) {
 		
 		Long id = null;
-		String StrId = request.getParameter("idUsuario");
+		String StrId = request.getParameter("idC");
 		
 		if(StrId != null){
 			try {
@@ -22,15 +23,17 @@ public class AñadidoDeTareaAction implements Accion {
 			}
 			catch (NumberFormatException e) {};
 		}
+		
 		if(id == null) {
-			request.setAttribute("mensaje", "El id del usuario no se pasó o era null");
-			return  "FRACASO";
+			request.setAttribute("mensaje", "El id de la categoria no se pasó o era null");
+			Log.debug("Valor del id"+id);
+			return "FRACASO";
 		}
 		
-		Task tarea;
+		Category categoria;
 		try {
-			tarea = Services.getTaskService().findTaskById(id);
-			request.setAttribute("tarea", tarea);
+			categoria = Services.getTaskService().findCategoryById(id);
+			request.setAttribute("categoria", categoria);
 		} catch (BusinessException e) {
 			return "FRACASO";
 		}

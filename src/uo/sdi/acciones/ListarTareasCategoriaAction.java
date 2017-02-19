@@ -10,18 +10,16 @@ import uo.sdi.business.Services;
 import uo.sdi.business.TaskService;
 import uo.sdi.business.exception.BusinessException;
 import uo.sdi.dto.Task;
-import uo.sdi.dto.User;
 
-public class AñadirTareaAction implements Accion {
+
+public class ListarTareasCategoriaAction implements Accion {
 
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
-		String resultado = "EXITO";
+		String respuesta = "EXITO";
 		
-		User user = (User)request.getSession().getAttribute("user");
-		
-		String idStr = request.getParameter("idCategoria");
+		String idStr = request.getParameter("id");
 		Long id = null;
 		if(idStr!=null){
 			try{
@@ -31,27 +29,20 @@ public class AñadirTareaAction implements Accion {
 		}
 		if(id==null){
 			request.setAttribute("mensaje", "El id de la categoría no se pasó o era null");
-			resultado = "FRACASO";
+			respuesta = "FRACASO";
 		}
 		
-		Task task = new Task();
-		
-		task.setTitle(request.getParameter("title"));
-		task.setCategoryId(id);
-		task.setUserId(user.getId());
-		
+		TaskService taskService = Services.getTaskService();
 		try {
-			TaskService ts = Services.getTaskService();
-			ts.createTask(task);	
-			
-			List<Task> tasks = ts.findTasksByCategoryId(id);
+			List<Task> tasks = taskService.findTasksByCategoryId(id);
 			request.setAttribute("tasks", tasks);
+			request.setAttribute("idCategoria", id);
 		} catch (BusinessException e) {
-			resultado = "FRACASO";
-			Log.debug("Error al crear la tarea");
+			request.setAttribute("mensaje", e.getMessage());
+			respuesta = "FRACASO";
 		}
 		
-		return resultado;
+		return respuesta;
 	}
 
 }

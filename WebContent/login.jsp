@@ -24,7 +24,6 @@
       	</tr>
       </table>
    </form>
-   <a id="listarCategorias_link_id" href="listarCategorias">Lista de categorias</a>
    <%@ include file="pieDePagina.jsp" %>
 </body>
 </html>

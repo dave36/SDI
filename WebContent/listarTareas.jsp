@@ -18,13 +18,13 @@
 			<a href="gestionarCategorias">Gestionar categorias</a>
 		</li>
 		<li>
-			<a href="añadirTarea">Añadir tarea</a>
-		</li>
-		<li>
 			<a href="listarTareasInbox">Listar tareas Inbox</a>
 		</li>
 		<li>
 			<a href="listarTareasSemana">Listar tareas Semana</a>
+		</li>
+		<li>
+			<a id="listarCategorias_link_id" href="listarCategorias">Lista de categorias</a>
 		</li>
 	</ul>
 	

@@ -18,9 +18,6 @@
 			<a href="gestionarCategorias">Gestionar categorias</a>
 		</li>
 		<li>
-			<a href="añadirTarea">Añadir tarea</a>
-		</li>
-		<li>
 			<a href="listarTareas">Listar tareas Today</a>
 		</li>
 	</ul>

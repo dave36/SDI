@@ -8,17 +8,19 @@
 </head>
 <body>
 	
-	<form action="añadirTarea" method="post" name="añadirTarea_form_name">
-		<input type="hidden" value="${categoria.id}" name="idCategoria">
+	<form action="seleccionarCategoria" method="post" name="seleccionarCategoria_form_name">
+		
 	
-		<center><h1>Introduzca los datos de la tarea</h1></center>
+		<center><h1>Seleccione la categoria a listar</h1></center>
  		<hr><br>
  		
  		<table align="center">
 		<tr>
 			<td align="right">Title:</td>
 			<td><input type="text" id="title" name="title"/></td>
-		</tr> 
+		</tr>
+		
+		<a href=""></a>
 		
 		<tr>
 			<td><input type="submit" value="Enviar"/></td>

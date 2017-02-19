@@ -4,9 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>TaskManager - Listado de categorías</title>
+<title>Listado de categorías</title>
 </head>
 <body>
+	<center><h1>Selección de categoría a listar</h1></center>
 	<table border="1" align="center">
 			<tr>
 				<th>ID</th>

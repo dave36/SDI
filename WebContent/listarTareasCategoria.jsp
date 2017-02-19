@@ -8,20 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inbox Tasks</title>
+<title>Today Tasks</title>
 </head>
 <body>
-	<h1>Listado de tareas - Inbox</h1>
+	<h1>Listado de tareas</h1>
 	
 	<ul>
 		<li>
 			<a href="gestionarCategorias">Gestionar categorias</a>
 		</li>
 		<li>
-			<a href="listarTareas">Listar tareas Today</a>
+			<a href="añadidoDeTarea?idC=${ pageScope.idCategoria }">Añadir tarea</a>
+		</li>
+		<li>
+			<a href="listarTareasInbox">Listar tareas Inbox</a>
 		</li>
 		<li>
 			<a href="listarTareasSemana">Listar tareas Semana</a>
+		</li>
+		<li>
+			<a id="listarCategorias_link_id" href="listarCategorias">Lista de categorias</a>
 		</li>
 	</ul>
 	
