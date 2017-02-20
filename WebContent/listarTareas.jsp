@@ -44,9 +44,19 @@
 					<fmt:formatDate value="${pageScope.task.created}" type="date" dateStyle="short"/>
 				</td>
 				
-				<td>
-					<fmt:formatDate value="${pageScope.task.planned}" type="date" dateStyle="short"/>
-				</td>
+				<c:set var="now" value="<%=new java.util.Date()%>" />
+				
+				<c:choose>
+					<c:when test="${ pageScope.task.planned < now}">
+						<td bgcolor="red"><fmt:formatDate
+								value="${pageScope.task.planned}" type="date" dateStyle="short" pattern="dd/MM/yyyy"/>
+						</td>
+					</c:when>
+					<c:otherwise>
+						<td><fmt:formatDate value="${pageScope.task.planned}"
+								type="date" dateStyle="short" /></td>
+					</c:otherwise>
+				</c:choose>
 				
 				<td>
 					<a href="finalizarTarea?idTarea=${pageScope.task.id}">Finalizar</a>
