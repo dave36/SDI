@@ -136,6 +136,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		
 		Map<String,Accion> mapaRegistrado=new HashMap<String,Accion>();
 		mapaRegistrado.put("modificarDatos", new ModificarDatosAction());
+		mapaRegistrado.put("modificarContraseña", new ModificarContraseñaAction());
 		mapaRegistrado.put("listarTareas", new ListarTareasAction());
 		mapaRegistrado.put("listarTareasInbox", new ListarTareasInboxAction());
 		mapaRegistrado.put("listarTareasSemana", new ListarTareasSemanaAction());
@@ -160,6 +161,7 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		//Administrador
 		Map<String,Accion> mapaAdmin=new HashMap<String,Accion>();
 		mapaAdmin.put("modificarEmail", new ModificarDatosAction());
+		mapaAdmin.put("modificarContraseña", new ModificarContraseñaAction());
 		mapaAdmin.put("listarUsuarios", new ListarUsuariosAction());
 		mapaAdmin.put("modificarStatus", new ModificarStatusAction());
 		mapaAdmin.put("eliminarUsuario", new EliminarUsuarioAction());
@@ -308,6 +310,11 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resultadoYJSP.put("FRACASO", "/error.jsp");
 		opcionResultadoYJSP.put("cerrarSesion", resultadoYJSP);
 		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/principalUsuario.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("modificarContraseña", resultadoYJSP);
+		
 		mapaDeNavegacion.put("USUARIO",opcionResultadoYJSP);  
 		
 		// Mapa de navegación del administrador
@@ -354,6 +361,11 @@ public class Controlador extends javax.servlet.http.HttpServlet {
 		resultadoYJSP.put("EXITO", "/login.jsp");
 		resultadoYJSP.put("FRACASO", "/error.jsp");
 		opcionResultadoYJSP.put("cerrarSesion", resultadoYJSP);
+		
+		resultadoYJSP=new HashMap<String, String>();
+		resultadoYJSP.put("EXITO", "/principalAdmin.jsp");
+		resultadoYJSP.put("FRACASO", "/error.jsp");
+		opcionResultadoYJSP.put("modificarContraseña", resultadoYJSP);
 		
 		mapaDeNavegacion.put("ADMIN", opcionResultadoYJSP);
 	}

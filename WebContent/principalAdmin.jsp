@@ -44,24 +44,14 @@
 		
 		<tr>
 			<td>Contraseña actual:</td>
-			<td id="password"><form action="modificarDatos" method="POST">
+			<td id="password"><form action="modificarContraseña" method="POST">
 				<input type="password" name="oldPass" size="15">
-				</form>
-			</td>
-			
-			<td>Contraseña nueva:</td>
-			<td id="password"><form action="modificarDatos" method="POST">
-				<input type="password" name="newPass" size="15">
-				</form>
-			</td>
-			
-			<td>Contraseña nueva:</td>
-			<td id="password"><form action="modificarDatos" method="POST">
-				<input type="password" name="newPass2" size="15">
-				
+				<label id="newPass">Contraseña nueva:</label>
+				<input id="newPass" type="password" name="newPass" size="15">
+				<label id="newPass2">Contraseña nueva:</label>
+				<input id="newPass2" type="password" name="newPass2" size="15">
 				<input type="submit" value="Modificar">
-				</form>
-			</td>
+			</form></td>
 		</tr>
 	</table>
 	<br/>	
