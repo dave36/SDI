@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@ page import="java.util.*"%>
+<%@ page import="java.util.Date" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -38,9 +38,11 @@
 
 				<td><fmt:formatDate value="${pageScope.task.created}"
 						type="date" dateStyle="short" /></td>
-
+						
+				<c:set var="now" value="<%=new java.util.Date()%>" />		
+				
 				<c:choose>
-					<c:when test="${ (pageScope.task.planned).compareTo(DateUtil.today()) lt 0}">
+					<c:when test="${ pageScope.task.planned < now}">
 						<td bgcolor="red"><fmt:formatDate
 								value="${pageScope.task.planned}" type="date" dateStyle="short" />
 						</td>
