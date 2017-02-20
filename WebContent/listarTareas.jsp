@@ -15,13 +15,13 @@
 	
 	<ul>
 		<li>
-			<a href="gestionarCategorias">Gestionar categorias</a>
+			<a id="gestionarCategorias_id" href="gestionarCategorias">Gestionar categorias</a>
 		</li>
 		<li>
-			<a href="listarTareasInbox">Listar tareas Inbox</a>
+			<a id="listarTareasInbox_id" href="listarTareasInbox">Listar tareas Inbox</a>
 		</li>
 		<li>
-			<a href="listarTareasSemana">Listar tareas Semana</a>
+			<a id="listarTareasSemana_id" href="listarTareasSemana">Listar tareas Semana</a>
 		</li>
 		<li>
 			<a id="listarCategorias_link_id" href="listarCategorias">Lista de categorias</a>

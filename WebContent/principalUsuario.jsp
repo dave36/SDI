@@ -10,7 +10,7 @@
 
 	<ul>
 		<li>
-			<a href="listarTareas">Tareas</a>
+			<a id="listarTareas_id" href="listarTareas">Tareas</a>
 		</li>
 	</ul>
 	
@@ -55,7 +55,7 @@
 		</tr>
 	</table>
 	<br/>	
-	<a href="cerrarSesion">Cerrar sesión</a>
+	<a id="cerrarSesion_link_id" href="cerrarSesion">Cerrar sesión</a>
 	
 	<%@ include file="pieDePagina.jsp" %>
 </body>

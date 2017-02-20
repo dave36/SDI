@@ -13,7 +13,7 @@
 	
 	<ul>
 		<li>
-			<a href="nuevaCategoria">Añadir categoria</a>
+			<a id="nuevaCategoria_id" href="nuevaCategoria">Añadir categoria</a>
 		</li>
 	</ul>
 	
